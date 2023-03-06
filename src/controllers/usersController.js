@@ -9,7 +9,17 @@ const controller = {
     register: (req, res) => {
 
         return res.render('register');
+
+        
     },
+
+    userCreate: (req, res) => {
+
+        return res.render('userFormCreate');
+
+        
+    },
+    
     processRegister: async (req, res) => {
         const resultValidation = validationResult(req);
 
@@ -36,7 +46,8 @@ const controller = {
             password: bcrypt.hashSync(req.body.password, 10),
             direccion: req.body.direccion,
             fecha_nacimiento: req.body.fechaDeNacimiento,
-            img: req.file.filename
+            img: req.file.filename,
+            rol: req.body.rol
         })
         res.redirect('/login')
 
@@ -56,9 +67,9 @@ const controller = {
                 userToLogin.password = "********";
                 req.session.userLogged = userToLogin;
         
-                if (req.body.recordarUsuario) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-                }
+               // if (req.body.recordarUsuario) {
+                //    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                //}
 
                 return res.redirect('/profile');
             } else {
@@ -106,6 +117,14 @@ const controller = {
         catch(e) {console.log(e)}
     },
 
+    edit2: async function(req, res) {
+        try
+        {const user = await User.findByPk(req.params.id)
+         res.render('userFormEdit2', {user})
+        }
+        catch(e) {console.log(e)}
+    },
+
     update: async function (req,res) { 
         let userToEdit = await User.findOne({
             where: {
@@ -121,7 +140,8 @@ const controller = {
             User.update(
                 {
                     usuario: req.body.usuario,
-                    direccion: req.body.direccion
+                    direccion: req.body.direccion,
+                    password: bcrypt.hashSync(req.body.password, 10),
 
                 },
                 {
@@ -146,7 +166,7 @@ const controller = {
     },
 
     list: async (req, res) => {
-        const users = await User.findAll({ where: { id_rol: 2 } })
+        const users = await User.findAll({ where: { rol: "comun" } })
         res.render('usuarios', {users})
     },
 

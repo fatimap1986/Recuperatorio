@@ -91,10 +91,9 @@ window.onload = function() {
         if (imagen.value == ""){
             errores.push('Debes seleccionar una imagen')
             imagen.classList.add('is-invalid')
-        }else{
+        } else{
             imagen.classList.remove('is-invalid')
         }
-
 
         if (errores.length > 0){
             let ulErrores = document.querySelector('.errores')

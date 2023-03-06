@@ -39,17 +39,15 @@
                 </div>
 
                 <div class="contenedorBotonEditar">
+                    <form action="/user/edit/<%= user.id %>" method="get"><button type="submit" class="botonEdicionPerfil">Editar Datos</button></form>
                     <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST">
                         <button type="submit" style="background-color: red; color: white; border-radius: 1%;" class="botonEdicionPerfil">Eliminar</button></form>
+                    
                    
                 </div>
             </div> <% }); %>
-            <!-- <div class="contenedorPerfilSub2"><img class="imagenMontaña" src="/images/montañasperfil.jpg" alt=""></div> -->
     </div>
 
 </body>
-<footer>
-    <%- include('./partials/footer') %>
-</footer>
 
 </html>

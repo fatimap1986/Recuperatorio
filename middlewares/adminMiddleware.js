@@ -1,8 +1,8 @@
 function adminMiddleware(req, res, next){
-    if (req.session.userLogged.id_rol != 1) {
+    if (req.session.userLogged.rol != "administrador") {
         return res.redirect('/');
     }
     next();
 }
 
-module.exports = adminMiddleware;
+module.exports = adminMiddleware

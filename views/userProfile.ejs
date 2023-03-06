@@ -11,8 +11,7 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <div><img style="width: 100%;"  src="/images/bannerperfil.jpg" alt=""></div>
-   
+    
     <br>
     
 <div class="contenedorPerfil">
@@ -34,12 +33,9 @@
     <form action="/logout" method="post"><button type="submit" class="botonEdicionPerfil">Log out</button></form>
     <form action="/profile/edit/<%= user.id %>" method="get"><button type="submit" class="botonEdicionPerfil">Editar Datos</button></form>
 </div>
-</div><div class="contenedorPerfilSub2"><img class="imagenMontaña" src="/images/montañasperfil.jpg" alt=""></div>
+</div>
 </div>
  
 </body>
-<footer>
-    <%- include('./partials/footer') %>
-</footer>
 
 </html>

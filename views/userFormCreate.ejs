@@ -10,7 +10,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>Registrarse</title>
+    <title>Crear usuario</title>
 
     <link rel="stylesheet" href="/styles.css">
 
@@ -29,11 +29,11 @@
         <% } %>
 
         <div class="registro">
-            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrarse</p>
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Crear usuario</p>
             <div>
                 <ul class="errores"></ul>
             </div>
-            <form class="registerForm" method="post" action="/register/create" enctype="multipart/form-data">
+            <form class="registerForm" method="post" action="/create" enctype="multipart/form-data">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -86,18 +86,18 @@
 
                     <Label>Rol</Label>
                     <select name = "rol">
+                        <option value="administrador">Administrador</option>
                         <option value="comun">Comun</option>
                     </select>
-                    
+
                     <button type="submit" class="btn btn-primary btn-block"> Crear Cuenta </button>
                 </div>
-                <p class="text-center">Ya tenés cuenta? <a href="/login">Log In</a> </p>
+                <p class="text-center">Ya tenés cuenta?<a href="/login">Log In</a> </p>
 
             </form>
         </div>
         <br>
         <br>
-       
     </div>
     <script src="/js/registerValidation.js"></script>
 </body>

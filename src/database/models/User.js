@@ -8,9 +8,8 @@ function usuarios (sequelize, dataTypes) {
             primaryKey: true,
             autoIncrement: true,
         },
-        id_rol: {
-            type: dataTypes.INTEGER,
-            foreignKey: true,
+        rol: {
+            type: dataTypes.STRING,
         },
         usuario: {
             type: dataTypes.STRING
