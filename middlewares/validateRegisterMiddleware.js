@@ -18,6 +18,7 @@ module.exports = [
         let file = req.file;
         let acceptedExtensions = [ '.jpg', '.jpeg' , '.png', '.JPG', '.PNG', '.JPEG'];
         
+
         if (!file){
             throw new Error('Tienes que subir una imagen');
         } else {
@@ -26,6 +27,9 @@ module.exports = [
                 throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
             }
         }
+      
+      let fileSize = file.size
+      if (fileSize > 1048576) {throw new Error('La imagen no puede pesar mas de 1 MB')}
 
         return true;
     })
